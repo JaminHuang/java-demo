@@ -1,0 +1,3 @@
+org.springframework.context.ApplicationListener=\
+com.panda.rpc.core.listener.KylinBootApplicationListener,\
+com.panda.rpc.core.listener.KylinApplicationPreparedListener

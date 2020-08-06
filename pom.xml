@@ -12,5 +12,6 @@
         <module>demo-dependencies</module>
         <module>demo-parent</module>
         <module>demo-sdk</module>
+        <module></module>
     </modules>
 </project>

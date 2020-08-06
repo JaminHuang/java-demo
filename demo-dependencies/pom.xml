@@ -31,6 +31,7 @@
         <mysql.connector.java.version>8.0.9-rc</mysql.connector.java.version>
         <spring.cloud.starter.netflix.zuul.version>1.4.0.RELEASE</spring.cloud.starter.netflix.zuul.version>
         <com.squareup.okhttp.version>2.7.5</com.squareup.okhttp.version>
+        <db-ibatx.version>1.0.0</db-ibatx.version>
         <hessian.version>4.0.60</hessian.version>
         <httpmime.version>4.5.8</httpmime.version>
         <netty-all.version>4.1.37.Final</netty-all.version>
