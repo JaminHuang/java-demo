@@ -1,6 +1,6 @@
 package com.demo.rpc.hessian;
 
-import com.sun.deploy.net.HttpResponse;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 
 import java.util.ArrayList;

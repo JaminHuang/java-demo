@@ -1,5 +1,6 @@
 package com.demo.rpc.client.utils;
 
+import com.demo.rpc.client.KylinHessianProxyFactoryBean;
 import com.demo.rpc.client.ServiceUrlSelector;
 import com.demo.rpc.core.SpringContext;
 import com.demo.rpc.hessian.KylinHessianProxyFactory;

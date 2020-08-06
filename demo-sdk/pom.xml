@@ -13,6 +13,12 @@
     <version>1.0.0</version>
 
     <dependencies>
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>db-ibatx-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>

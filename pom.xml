@@ -12,6 +12,7 @@
         <module>demo-dependencies</module>
         <module>demo-parent</module>
         <module>demo-sdk</module>
-        <module></module>
+        <module>demo-rpc</module>
+        <module>db-ibatx</module>
     </modules>
 </project>

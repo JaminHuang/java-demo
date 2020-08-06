@@ -3,8 +3,11 @@ package com.demo.rpc.client;
 import com.alibaba.fastjson.JSONObject;
 import com.caucho.hessian.client.HessianConnectionException;
 import com.caucho.hessian.client.HessianProxyFactory;
+import com.db.ibatx.core.entity.Condition;
 import com.demo.rpc.support.RpcThreadLocal;
 import com.demo.sdk.exception.HttpRefusedException;
+import com.demo.sdk.exception.IllegalObjectException;
+import com.demo.sdk.exception.ServiceException;
 import com.demo.sdk.page.Page;
 import com.demo.sdk.utils.ExceptionUtils;
 import org.aopalliance.intercept.MethodInvocation;
@@ -210,7 +213,6 @@ public class KylinHessianClientInterceptor extends HessianClientInterceptor {
                     json.put("args", args);
                     json.put("note", note);
                     json.put("inClass", inClass.getName());
-                    ddTalk.send(json);
                     logger.info(json.toJSONString());
                 }
             }
