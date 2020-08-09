@@ -9,7 +9,7 @@ import com.demo.sdk.exception.HttpRefusedException;
 import com.demo.sdk.exception.IllegalObjectException;
 import com.demo.sdk.exception.ServiceException;
 import com.demo.sdk.page.Page;
-import com.demo.sdk.utils.ExceptionUtils;
+import com.demo.sdk.util.ExceptionUtils;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.http.NoHttpResponseException;
 import org.apache.http.conn.HttpHostConnectException;

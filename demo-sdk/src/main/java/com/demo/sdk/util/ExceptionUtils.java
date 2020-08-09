@@ -1,4 +1,4 @@
-package com.demo.sdk.utils;
+package com.demo.sdk.util;
 
 /**
  * 异常捕获工具类
