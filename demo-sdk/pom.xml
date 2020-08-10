@@ -10,13 +10,17 @@
     </parent>
 
     <artifactId>demo-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>${sdk.module.version}</version>
+
+    <properties>
+        <apm-toolkit-trace.version>6.4.0</apm-toolkit-trace.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.demo</groupId>
             <artifactId>db-ibatx-core</artifactId>
-            <version>1.0.0</version>
+            <version>${db-ibatx.version}</version>
         </dependency>
 
         <!-- lombok -->
@@ -92,7 +96,7 @@
         <dependency>
             <groupId>org.apache.skywalking</groupId>
             <artifactId>apm-toolkit-trace</artifactId>
-            <version>6.4.0</version>
+            <version>${apm-toolkit-trace.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -8,21 +8,16 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>demo-api</artifactId>
-    <version>${api.module.version}</version>
+    <artifactId>ac-eureka</artifactId>
+    <version>${eureka.module.version}</version>
 
     <dependencies>
+
         <dependency>
-            <groupId>com.demo</groupId>
-            <artifactId>demo-sdk</artifactId>
-            <version>${sdk.module.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
 
-        <!--热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

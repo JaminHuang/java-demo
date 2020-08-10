@@ -11,21 +11,19 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
-import org.springframework.amqp.support.converter.AbstractJackson2MessageConverter;
 import org.springframework.amqp.support.converter.MessageConversionException;
-import org.springframework.util.MimeTypeUtils;
+import org.springframework.amqp.support.converter.AbstractJsonMessageConverter;
 
 /**
  * 自定义消息转换
  */
-public class CustomJackson2JsonMessageConverter extends AbstractJackson2MessageConverter {
+public class CustomJackson2JsonMessageConverter extends AbstractJsonMessageConverter {
 
     private static Log log = LogFactory.getLog(CustomJackson2JsonMessageConverter.class);
     private ObjectMapper objectMapper;
     private JavaType javaType;
 
     public CustomJackson2JsonMessageConverter() {
-        super(new ObjectMapper(), MimeTypeUtils.APPLICATION_JSON);
         this.javaType = this.getJavaType(Object.class);
         objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

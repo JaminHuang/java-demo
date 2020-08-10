@@ -10,9 +10,18 @@
     </parent>
 
     <artifactId>demo-parent</artifactId>
-    <version>1.0.0</version>
+    <version>${parent.module.version}</version>
     <name>demo-parent</name>
     <packaging>pom</packaging>
+
+    <properties>
+        <db-ibatx.module.version>1.0.0</db-ibatx.module.version>
+        <api.module.version>1.0.0</api.module.version>
+        <eureka.module.version>1.0.0</eureka.module.version>
+        <sdk.module.version>1.0.0</sdk.module.version>
+        <rpc.module.version>1.0.0</rpc.module.version>
+        <parent.module.version>1.0.0</parent.module.version>
+    </properties>
 
     <dependencies>
         <!-- junit -->

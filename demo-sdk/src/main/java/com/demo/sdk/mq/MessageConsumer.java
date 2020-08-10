@@ -7,9 +7,8 @@ import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AcknowledgeMode;
-import org.springframework.amqp.core.MessageListener;
+import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
-import org.springframework.amqp.rabbit.listener.api.ChannelAwareMessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
@@ -93,7 +92,7 @@ public abstract class MessageConsumer<T> {
             container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
             container.setPrefetchCount(200);
         }
-        container.setMessageListener((MessageListener) new MyChannelAwareMessageListener());
+        container.setMessageListener(new MyChannelAwareMessageListener());
         container.start();
         logger.info("-----------> {} start listen!!!", this.getClass().getSimpleName());
     }

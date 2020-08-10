@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>demo-rpc</artifactId>
-    <version>1.0.0</version>
+    <version>${rpc.module.version}</version>
 
     <!-- 依赖 -->
     <dependencies>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.demo</groupId>
             <artifactId>demo-sdk</artifactId>
-            <version>1.0.0</version>
+            <version>${sdk.module.version}</version>
             <scope>provided</scope>
         </dependency>
 

@@ -1,6 +1,7 @@
 package com.demo.sdk.runner;
 
 import com.demo.sdk.util.ContextUtils;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +22,7 @@ public class FieldInitRunner extends BeforeRunner {
     StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    org.springframework.amqp.rabbit.connection.ConnectionFactory connectionFactory;
+    ConnectionFactory connectionFactory;
 
     @Autowired
     RabbitTemplate rabbitTemplate;
