@@ -6,11 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.SmartLifecycle;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 
 /**
  * 该类用于解决rpc调用时因为初始化loadbanace导致的超时问题, 处理方法为, 程序启动时初始化所有client
  */
+//@Configuration
 public class RpcClientAutoConfiguration {
 
     private static Logger logger = LoggerFactory.getLogger(RpcClientAutoConfiguration.class);

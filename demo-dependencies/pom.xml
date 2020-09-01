@@ -33,6 +33,7 @@
         <com.squareup.okhttp.version>2.7.5</com.squareup.okhttp.version>
         <db-ibatx.version>1.0.0</db-ibatx.version>
         <hessian.version>4.0.60</hessian.version>
+        <poi.version>3.17</poi.version>
         <httpmime.version>4.5.8</httpmime.version>
         <netty-all.version>4.1.37.Final</netty-all.version>
     </properties>
@@ -118,6 +119,12 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
