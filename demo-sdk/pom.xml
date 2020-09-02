@@ -19,8 +19,8 @@
     <dependencies>
         <dependency>
             <groupId>com.demo</groupId>
-            <artifactId>db-ibatx-core</artifactId>
-            <version>${db-ibatx.version}</version>
+            <artifactId>demo-ibatx-core</artifactId>
+            <version>${demo-ibatx.version}</version>
         </dependency>
 
         <!-- lombok -->

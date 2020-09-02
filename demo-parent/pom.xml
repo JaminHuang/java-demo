@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <db-ibatx.module.version>1.0.0</db-ibatx.module.version>
+        <demo-ibatx.module.version>1.0.0</demo-ibatx.module.version>
         <api.module.version>1.0.0</api.module.version>
         <eureka.module.version>1.0.0</eureka.module.version>
         <sdk.module.version>1.0.0</sdk.module.version>
