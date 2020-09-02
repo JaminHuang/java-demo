@@ -13,6 +13,6 @@
         <module>demo-parent</module>
         <module>demo-sdk</module>
         <module>demo-rpc</module>
-        <module>db-ibatx</module>
+        <module>demo-ibatx</module>
     </modules>
 </project>
