@@ -3,7 +3,7 @@ package com.demo.rpc.client;
 import com.alibaba.fastjson.JSONObject;
 import com.caucho.hessian.client.HessianConnectionException;
 import com.caucho.hessian.client.HessianProxyFactory;
-import com.db.ibatx.core.entity.Condition;
+import com.demo.ibatx.core.entity.Condition;
 import com.demo.rpc.support.RpcThreadLocal;
 import com.demo.sdk.exception.HttpRefusedException;
 import com.demo.sdk.exception.IllegalObjectException;
