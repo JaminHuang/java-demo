@@ -1,0 +1,44 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--suppress MybatisGenerateCustomPluginInspection -->
+<generatorConfiguration>
+
+    <properties resource="config/datasource.properties"/>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!-- 注释用-->
+        <property name="author" value="hzm"/>
+
+        <plugin type="com.demo.ibatx.generator.plugins.ExtBatisPlugin">
+
+        </plugin>
+
+
+        <jdbcConnection driverClass="${datasource.driver-class-name}"
+                        connectionURL="${datasource.url}"
+                        userId="${datasource.username}"
+                        password="${datasource.password}">
+            <!-- 获取表的注释-->
+            <property name="useInformationSchema" value="true" />
+        </jdbcConnection>
+
+
+        <!--MyBatis 生成器只需要生成 Model-->
+        <javaModelGenerator targetPackage="${common.model.package}" targetProject="${common.java}"/>
+
+
+        <!--用于生成xml-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="${mapper.xml}"/>
+
+        <!--用于生成mapper-->
+        <javaClientGenerator targetPackage="${mapper.package}" targetProject="${mapper.java}"
+                             type="XMLMAPPER">
+        </javaClientGenerator>
+
+        <table tableName="empty"></table>
+
+    </context>
+</generatorConfiguration>
