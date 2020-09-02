@@ -17,6 +17,7 @@
     <modules>
         <module>demo-ibatx-base</module>
         <module>demo-ibatx-core</module>
+        <module>demo-ibatx-spring</module>
     </modules>
 
     <properties>

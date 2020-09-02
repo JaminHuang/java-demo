@@ -1,6 +1,6 @@
 package com.demo.ibatx.helper;
 
-import com.demo.ibatx.core.annotation.Table;
+import com.demo.ibatx.core.annotation.*;
 import com.demo.ibatx.exception.EntityUnDefinedException;
 import com.demo.ibatx.meta.*;
 
