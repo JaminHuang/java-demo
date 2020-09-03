@@ -12,12 +12,12 @@ import org.springframework.core.Ordered;
 /**
  * 该类用于解决rpc调用时因为初始化loadbanace导致的超时问题, 处理方法为, 程序启动时初始化所有client
  */
-@Configuration
+//@Configuration
 public class RpcClientAutoConfiguration {
 
     private static Logger logger = LoggerFactory.getLogger(RpcClientAutoConfiguration.class);
 
-    @Configuration
+    //@Configuration
     static class RpcClientAutoInit implements SmartLifecycle {
         boolean isRunning = false;
 
