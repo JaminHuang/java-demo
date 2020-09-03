@@ -10,17 +10,12 @@
     </parent>
 
     <artifactId>demo-parent</artifactId>
-    <version>${parent.module.version}</version>
-    <name>demo-parent</name>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <properties>
-        <ibatx.module.version>1.0.0</ibatx.module.version>
-        <api.module.version>1.0.0</api.module.version>
-        <eureka.module.version>1.0.0</eureka.module.version>
-        <sdk.module.version>1.0.0</sdk.module.version>
         <rpc.module.version>1.0.0</rpc.module.version>
-        <parent.module.version>1.0.0</parent.module.version>
+        <sdk.module.version>1.0.0</sdk.module.version>
     </properties>
 
     <dependencies>

@@ -20,7 +20,6 @@
         <dependency>
             <groupId>com.demo</groupId>
             <artifactId>demo-ibatx-core</artifactId>
-            <version>${ibatx.version}</version>
         </dependency>
 
         <!-- lombok -->
