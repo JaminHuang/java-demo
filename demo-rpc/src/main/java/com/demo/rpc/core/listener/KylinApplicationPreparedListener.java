@@ -10,7 +10,6 @@ import org.springframework.core.Ordered;
 
 /**
  * spring 启动监听器
- * @author jamin
  */
 public class KylinApplicationPreparedListener implements SmartApplicationListener {
 

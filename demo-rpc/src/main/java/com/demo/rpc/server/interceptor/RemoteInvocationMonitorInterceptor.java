@@ -10,6 +10,9 @@ import org.aopalliance.intercept.MethodInvocation;
  */
 public class RemoteInvocationMonitorInterceptor implements MethodInterceptor {
 
+    /**
+     * @see MethodInterceptor#invoke(MethodInvocation)
+     */
     public Object invoke(MethodInvocation invocation) throws Throwable {
         if (WebContainer.isRuning()) {
             WebContainer.incrementAndGet();
@@ -22,5 +25,6 @@ public class RemoteInvocationMonitorInterceptor implements MethodInterceptor {
         // 如果web容器在重启中，则抛出Http拒绝异常
         throw new HttpRefusedException("server is stoping");
     }
+
 
 }

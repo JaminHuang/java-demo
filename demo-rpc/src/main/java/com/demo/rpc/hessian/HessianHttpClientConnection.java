@@ -14,7 +14,6 @@ import java.io.OutputStream;
 
 /**
  * 使用HttpClient实现hessian的远程调用
- *
  */
 public class HessianHttpClientConnection implements HessianConnection {
 

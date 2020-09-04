@@ -11,9 +11,6 @@ import org.springframework.core.Ordered;
 /**
  *
  * 用于springboot启动时，将spring管理的部分对象放入springcontext对象中，供非spring管理类调用
- *
- * @author jamin
- * @date 2020-08-06
  */
 public class KylinBootApplicationListener implements SmartApplicationListener {
 

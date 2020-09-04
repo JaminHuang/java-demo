@@ -42,7 +42,11 @@ public class HessianServiceExporter extends HessianExporter implements HttpReque
         String userId = request.getHeader(HeaderProperties.USER_ID);
         String userName = request.getHeader(HeaderProperties.USER_NAME);
         String tid = request.getHeader(HeaderProperties.TID);
+        String ip = request.getHeader(HeaderProperties.IP);
 
+        if (ip != null) {
+            ReqThreadLocal.setIp(ip);
+        }
         if (tid != null) {
             ReqThreadLocal.setTid(tid);
         }

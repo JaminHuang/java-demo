@@ -15,5 +15,4 @@ public class RpcThreadLocal {
     public static void setServiceUrl(String url) {
         serviceUrl.set(url);
     }
-
 }

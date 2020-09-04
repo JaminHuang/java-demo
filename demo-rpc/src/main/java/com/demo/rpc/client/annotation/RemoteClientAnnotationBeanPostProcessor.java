@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * 客户端实例化
- *
- * @author caiLinFeng
- * @date 2018年12月12日
  */
 @Component
 public class RemoteClientAnnotationBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter

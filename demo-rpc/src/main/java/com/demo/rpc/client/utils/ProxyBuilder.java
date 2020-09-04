@@ -22,10 +22,6 @@ import org.springframework.util.StringUtils;
  * ProxyBuilder.create() .useHttpClient()
  * .setServiceUrl("http://localhost:8080/exampleservice")
  * .setServiceExportName("hello") .setClazz(HelloService.class) .build();
- *
- * @author <a href="mailto:chenyb@59store.com">山人</a>
- * @version 2.1 16/05/13
- * @since 2.1
  */
 public class ProxyBuilder {
 

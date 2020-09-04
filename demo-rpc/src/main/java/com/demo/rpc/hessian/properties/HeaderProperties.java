@@ -13,4 +13,6 @@ public class HeaderProperties {
 
     public static String TID = "tid";
 
+    public static String IP = "ip";
+
 }

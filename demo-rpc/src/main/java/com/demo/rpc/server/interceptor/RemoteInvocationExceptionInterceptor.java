@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.ClassUtils;
 
 /**
- * 捕捉远程调用异常
+ * 捕捉远程调用异常.
  */
 public class RemoteInvocationExceptionInterceptor implements MethodInterceptor {
 

@@ -40,6 +40,10 @@ public class KylinHessianProxy extends HessianProxy {
         Integer userId = ReqThreadLocal.getUserId();
         String userName = ReqThreadLocal.getUserName();
         String tid = ReqThreadLocal.getTid();
+        String ip = ReqThreadLocal.getIp();
+        if (ip != null) {
+            conn.addHeader(HeaderProperties.IP, ip);
+        }
         if (accessToken != null) {
             conn.addHeader(HeaderProperties.ACCESS_TOKEN, accessToken);
         }
@@ -56,5 +60,6 @@ public class KylinHessianProxy extends HessianProxy {
                 e.printStackTrace();
             }
         }
+
     }
 }

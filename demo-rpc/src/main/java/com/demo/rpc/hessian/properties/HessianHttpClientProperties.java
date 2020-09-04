@@ -3,6 +3,11 @@ package com.demo.rpc.hessian.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author <a href="mailto:chenyb@59store.com">山人</a>
+ * @version 1.0 16/7/21
+ * @since 1.0
+ */
 @ConfigurationProperties(prefix = "kylin.rpc.client")
 @Component(HessianHttpClientProperties.BEAN_NAME)
 public class HessianHttpClientProperties {

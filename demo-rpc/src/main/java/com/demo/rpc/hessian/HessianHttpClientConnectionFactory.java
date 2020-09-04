@@ -19,6 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * httpClient工厂类
+ */
 public class HessianHttpClientConnectionFactory implements HessianConnectionFactory {
     private static final Logger log = LoggerFactory.getLogger(HessianHttpClientConnectionFactory.class);
     private static CloseableHttpClient httpClient;
