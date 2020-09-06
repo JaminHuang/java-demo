@@ -6,11 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author caiLinFeng
- * @Key 属性初始化
- * @date 2018年11月27日
- */
 @Component
 public class MqEndRunner extends DestroyRunner {
 
