@@ -11,8 +11,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
-import org.springframework.amqp.support.converter.MessageConversionException;
 import org.springframework.amqp.support.converter.AbstractJsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConversionException;
 
 /**
  * 自定义消息转换
@@ -32,7 +32,7 @@ public class CustomJackson2JsonMessageConverter extends AbstractJsonMessageConve
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
-    public Object fromMessage(Message message) throws MessageConversionException {
+    public Object fromMessage(org.springframework.amqp.core.Message message) throws MessageConversionException {
         byte[] bytes = message.getBody();
         try {
             return this.objectMapper.readValue(bytes, 0, bytes.length, this.javaType);
@@ -41,7 +41,7 @@ public class CustomJackson2JsonMessageConverter extends AbstractJsonMessageConve
         }
     }
 
-    protected Message createMessage(Object objectToConvert, MessageProperties messageProperties) throws MessageConversionException {
+    protected org.springframework.amqp.core.Message createMessage(Object objectToConvert, MessageProperties messageProperties) throws MessageConversionException {
         byte[] bytes;
         try {
             if (objectToConvert == null) {

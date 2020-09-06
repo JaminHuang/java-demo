@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * mq启动
- *
- * @author caiLinFeng
- * @date 2018年11月27日
  */
 @Component
 public class MqStartRunner extends AfterRunner {

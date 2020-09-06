@@ -82,15 +82,15 @@ public abstract class MessageConsumer<T> {
         container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
         container.setQueueNames(queue);
-        container.setConcurrentConsumers(threads());
+        container.setConcurrentConsumers(consumers());
 
         // PTP消息手动确认
         if (MessageModel.BROADCAST.equals(messageModel())) {
             // 广播消息不确认，提高吞吐量
             container.setAcknowledgeMode(AcknowledgeMode.NONE);
         } else {
+            container.setPrefetchCount(prefetchCount());
             container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-            container.setPrefetchCount(200);
         }
         container.setMessageListener(new MyChannelAwareMessageListener());
         container.start();
@@ -141,6 +141,24 @@ public abstract class MessageConsumer<T> {
      *
      * @return
      */
+    protected int consumers() {
+        return Runtime.getRuntime().availableProcessors();
+    }
+
+    /**
+     * 可以获取消息的个数
+     *
+     * @return
+     */
+    protected int prefetchCount() {
+        return 200;
+    }
+
+    /**
+     * 过期，使用consumers()
+     * @return
+     */
+    @Deprecated
     protected int threads() {
         return Runtime.getRuntime().availableProcessors();
     }
@@ -151,6 +169,7 @@ public abstract class MessageConsumer<T> {
     }
 
     private ConsumeStatus run(Message<T> message) {
+        long start = System.currentTimeMillis();
         ConsumeStatus status = ConsumeStatus.UN_KNOWN;
         try {
             T data = message.getData();
@@ -160,6 +179,8 @@ public abstract class MessageConsumer<T> {
             status = ConsumeStatus.FAIL;
             logger.error("消息消费异常, [error] = {}", ExceptionUtils.getExceptionMsg(e));
         }
+        long end = System.currentTimeMillis();
+        logger.info("mq执行耗时{}ms", end - start);
         return status;
     }
 
@@ -177,7 +198,6 @@ public abstract class MessageConsumer<T> {
             }
             // ptp,topic手动确认
             try {
-                logger.info("消息应答:{}", message1.getMessageProperties().getDeliveryTag());
                 channel.basicAck(message1.getMessageProperties().getDeliveryTag(), false);
             } catch (IOException e) {
                 logger.error("消息确认异常, [error] = {}", ExceptionUtils.getExceptionMsg(e));

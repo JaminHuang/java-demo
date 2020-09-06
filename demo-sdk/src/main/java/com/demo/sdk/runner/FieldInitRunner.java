@@ -16,22 +16,22 @@ import org.springframework.stereotype.Component;
 public class FieldInitRunner extends BeforeRunner {
 
     @Autowired
-    ApplicationContext ctx;
+    private ApplicationContext ctx;
 
     @Autowired
-    StringRedisTemplate stringRedisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    ConnectionFactory connectionFactory;
+    private ConnectionFactory connectionFactory;
 
     @Autowired
-    RabbitTemplate rabbitTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     @Value("${spring.profiles.active}")
-    String profiles;
+    private String profiles;
 
     @Value("${spring.application.name}")
-    String applicationName;
+    private String applicationName;
 
     @Override
     public void execute() {

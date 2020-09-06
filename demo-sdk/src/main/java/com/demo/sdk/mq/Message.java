@@ -55,6 +55,8 @@ public class Message<T> implements Serializable {
 
     private String tid;
 
+    private Integer pid;
+
     public Message() {
 
     }
