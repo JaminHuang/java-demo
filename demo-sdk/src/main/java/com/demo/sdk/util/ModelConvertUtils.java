@@ -10,9 +10,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Paul on 2017/5/4.
- */
 public class ModelConvertUtils {
 
     public static <T> T convert(Class<T> type, Object o) {

@@ -52,9 +52,6 @@ public class RedisUtils {
 
     /**
      * 删除key
-     *
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void del(String key) {
         redisTemplate.delete(key);
@@ -62,9 +59,6 @@ public class RedisUtils {
 
     /**
      * 批量删除key
-     *
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void del(Collection<String> keys) {
         redisTemplate.delete(keys);
@@ -72,9 +66,6 @@ public class RedisUtils {
 
     /**
      * 检查给定 key是否存在
-     *
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean exists(String key) {
         return redisTemplate.hasKey(key);
@@ -84,8 +75,6 @@ public class RedisUtils {
      * 设置过期时间
      *
      * @param timeout 单位秒
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean expire(String key, long timeout) {
         return redisTemplate.expire(key, timeout, TimeUnit.SECONDS);
@@ -93,10 +82,6 @@ public class RedisUtils {
 
     /**
      * 设置过期时间
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean expire(String key, long timeout, TimeUnit timeUtit) {
         return redisTemplate.expire(key, timeout, timeUtit);
@@ -104,10 +89,6 @@ public class RedisUtils {
 
     /**
      * 设置过期时间
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean expireAt(String key, Date date) {
         return redisTemplate.expireAt(key, date);
@@ -115,10 +96,6 @@ public class RedisUtils {
 
     /**
      * 返回给定 key 的剩余生存时间,以秒为单位
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long ttl(String key) {
         return redisTemplate.getExpire(key);
@@ -128,10 +105,6 @@ public class RedisUtils {
 
     /**
      * 将 key所储存的值加上增量 delta,返回增加后的值
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long incrBy(String key, long delta) {
         return redisTemplate.opsForValue().increment(key, delta);
@@ -139,10 +112,6 @@ public class RedisUtils {
 
     /**
      * 将字符串值 value 关联到 key
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void set(String key, Object value) {
         redisTemplate.opsForValue().set(key, value);
@@ -150,10 +119,6 @@ public class RedisUtils {
 
     /**
      * 将字符串值 value 关联到 key
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void setex(String key, Object value, long timeout, TimeUnit unit) {
         redisTemplate.opsForValue().set(key, value, timeout, unit);
@@ -161,10 +126,6 @@ public class RedisUtils {
 
     /**
      * 将 key的值设为 value ，当且仅当 key 不存在
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean setnx(String key, Object value) {
         return redisTemplate.opsForValue().setIfAbsent(key, value);
@@ -172,10 +133,6 @@ public class RedisUtils {
 
     /**
      * 关联到 key
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void mset(Map<String, Object> map) {
         redisTemplate.opsForValue().multiSet(map);
@@ -183,10 +140,6 @@ public class RedisUtils {
 
     /**
      * 返回 key所关联的字符串
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Object get(String key) {
         return redisTemplate.opsForValue().get(key);
@@ -196,10 +149,6 @@ public class RedisUtils {
 
     /**
      * 删除哈希表 key中的一个或多个指定域，不存在的域将被忽略
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long hdel(String key, Object... hashKeys) {
         return redisTemplate.opsForHash().delete(key, hashKeys);
@@ -207,11 +156,6 @@ public class RedisUtils {
 
     /**
      * 将哈希表 key中的域 field 的值设为 value
-     *
-     * @param
-     * @author caiLinFeng
-     * @Description
-     * @date 2018年1月30日
      */
     public void hset(String key, String hashKey, Object hashValue) {
         redisTemplate.opsForHash().put(key, hashKey, hashValue);
@@ -219,10 +163,6 @@ public class RedisUtils {
 
     /**
      * 同时将多个 field-value (域-值)对设置到哈希表 key 中
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void hmset(String key, Map<String, Object> map) {
         redisTemplate.opsForHash().putAll(key, map);
@@ -230,10 +170,6 @@ public class RedisUtils {
 
     /**
      * 将哈希表 key 中的域 field 的值设置为 value ，当且仅当域 field 不存在
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean hsetnx(String key, String hashKey, Object hashValue) {
         return redisTemplate.opsForHash().putIfAbsent(key, hashKey, hashValue);
@@ -241,10 +177,6 @@ public class RedisUtils {
 
     /**
      * 返回哈希表 key 中给定域 field 的值
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Object hget(String key, String hashKey) {
         return redisTemplate.opsForHash().get(key, hashKey);
@@ -252,10 +184,6 @@ public class RedisUtils {
 
     /**
      * 返回哈希表 key 中，所有的域和值
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Map<Object, Object> hgetAll(String key) {
         return redisTemplate.opsForHash().entries(key);
@@ -263,9 +191,6 @@ public class RedisUtils {
 
     /**
      * 返回哈希表 key 中的所有域
-     *
-     * @param
-     * @author caiLinFeng
      * @date 2018年1月30日
      */
     public Set<Object> hkeys(String key) {
@@ -274,10 +199,6 @@ public class RedisUtils {
 
     /**
      * 返回哈希表 key 中所有域的值
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public List<Object> hvals(String key) {
         return redisTemplate.opsForHash().values(key);
@@ -285,10 +206,6 @@ public class RedisUtils {
 
     /**
      * 为哈希表 key 中的域 field 的值加上增量 delta
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long hincrBy(String key, String hashKey, long delta) {
         return redisTemplate.opsForHash().increment(key, hashKey, delta);
@@ -296,10 +213,6 @@ public class RedisUtils {
 
     /**
      * 查看哈希表 key 中，给定域 field 是否存在
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean hexists(final String key, String hashKey) {
         return redisTemplate.opsForHash().hasKey(key, hashKey);
@@ -309,10 +222,6 @@ public class RedisUtils {
 
     /**
      * 删除并获取列表中的第一个元素
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Object lpop(String key) {
         return redisTemplate.opsForList().leftPop(key);
@@ -320,10 +229,6 @@ public class RedisUtils {
 
     /**
      * 删除并获取列表中的第一个元素，或阻塞，直到有一个元素可用
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Object blpop(String key, long timeout, TimeUnit unit) {
         return redisTemplate.opsForList().leftPop(key, timeout, unit);
@@ -331,10 +236,6 @@ public class RedisUtils {
 
     /**
      * 获取index的元素值
-     *
-     * @param key
-     * @param index
-     * @return
      */
     public Object index(String key, long index) {
         return redisTemplate.opsForList().index(key, index);
@@ -342,10 +243,6 @@ public class RedisUtils {
 
     /**
      * 删除并获取列表中的最后一个元素
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Object rpop(String key) {
         return redisTemplate.opsForList().rightPop(key);
@@ -353,10 +250,6 @@ public class RedisUtils {
 
     /**
      * 删除并获取列表中的最后一个元素，或阻塞，直到有一个元素可用
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Object brpop(String key, long timeout, TimeUnit unit) {
         return redisTemplate.opsForList().rightPop(key, timeout, unit);
@@ -364,10 +257,6 @@ public class RedisUtils {
 
     /**
      * 返回列表 key 的长度
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long llen(String key) {
         return redisTemplate.opsForList().size(key);
@@ -375,10 +264,6 @@ public class RedisUtils {
 
     /**
      * 将value 插入到列表 key 的表头
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long lpush(String key, Object value) {
         return redisTemplate.opsForList().leftPush(key, value);
@@ -397,10 +282,6 @@ public class RedisUtils {
 
     /**
      * 将value 插入到列表 key 的表尾
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long rpush(String key, Object value) {
         return redisTemplate.opsForList().rightPush(key, value);
@@ -408,10 +289,6 @@ public class RedisUtils {
 
     /**
      * 将值 value 插入到列表 key 的表尾，当且仅当 key 存在并且是一个列表
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long rpushx(String key, Object value) {
         return redisTemplate.opsForList().rightPushIfPresent(key, value);
@@ -421,10 +298,6 @@ public class RedisUtils {
 
     /**
      * 将一个或多个 member 元素加入到集合 key 当中，已经存在于集合的 member 元素将被忽略
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long sadd(String key, Object... values) {
         return redisTemplate.opsForSet().add(key, values);
@@ -432,10 +305,6 @@ public class RedisUtils {
 
     /**
      * 返回集合 key 的基数(集合中元素的数量)
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long scard(String key) {
         return redisTemplate.opsForSet().size(key);
@@ -443,10 +312,6 @@ public class RedisUtils {
 
     /**
      * 返回一个集合的全部成员，该集合是所有给定集合之间的差集
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> sdiff(String key, String otherKey) {
         return redisTemplate.opsForSet().difference(key, otherKey);
@@ -454,10 +319,6 @@ public class RedisUtils {
 
     /**
      * 返回一个集合的全部成员，该集合是所有给定集合之间的差集
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> sdiff(String key, Collection<String> otherKeys) {
         return redisTemplate.opsForSet().difference(key, otherKeys);
@@ -465,10 +326,6 @@ public class RedisUtils {
 
     /**
      * 返回一个集合的全部成员，该集合是所有给定集合的交集
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> sinter(String key, String otherKey) {
         return redisTemplate.opsForSet().intersect(key, otherKey);
@@ -476,10 +333,6 @@ public class RedisUtils {
 
     /**
      * 返回一个集合的全部成员，该集合是所有给定集合的交集
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> sinter(String key, Collection<String> otherKeys) {
         return redisTemplate.opsForSet().intersect(key, otherKeys);
@@ -487,10 +340,6 @@ public class RedisUtils {
 
     /**
      * 判断 member 元素是否集合 key 的成员
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean sismember(String key, Object member) {
         return redisTemplate.opsForSet().isMember(key, member);
@@ -498,10 +347,6 @@ public class RedisUtils {
 
     /**
      * 返回集合 key 中的所有成员
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> smembers(String key) {
         return redisTemplate.opsForSet().members(key);
@@ -509,10 +354,6 @@ public class RedisUtils {
 
     /**
      * 移除集合 key 中的一个或多个 member 元素，不存在的 member 元素会被忽略
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long srem(String key, Object... values) {
         return redisTemplate.opsForSet().remove(key, values);
@@ -520,10 +361,6 @@ public class RedisUtils {
 
     /**
      * 返回一个集合的全部成员，该集合是所有给定集合的并集
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> sunion(String key, String otherKey) {
         return redisTemplate.opsForSet().union(key, otherKey);
@@ -531,10 +368,6 @@ public class RedisUtils {
 
     /**
      * 返回一个集合的全部成员，该集合是所有给定集合的并集
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> sunion(String key, Collection<String> otherKeys) {
         return redisTemplate.opsForSet().union(key, otherKeys);
@@ -544,10 +377,6 @@ public class RedisUtils {
 
     /**
      * 将一个或多个 member 元素及其 score 值加入到有序集 key 当中v
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Boolean zadd(String key, Object value, double score) {
         return redisTemplate.opsForZSet().add(key, value, score);
@@ -555,10 +384,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 的基数
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long zcard(String key) {
         return redisTemplate.opsForZSet().zCard(key);
@@ -566,10 +391,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 中， score 值在 min 和 max 之间(默认包括 score 值等于 min 或 max)的成员的数量
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long zcount(String key, double min, double max) {
         return redisTemplate.opsForZSet().count(key, min, max);
@@ -577,10 +398,6 @@ public class RedisUtils {
 
     /**
      * 为有序集 key 的成员 member 的 score 值加上增量 delta
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Double zincrby(String key, Object value, double delta) {
         return redisTemplate.opsForZSet().incrementScore(key, value, delta);
@@ -588,10 +405,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 中，指定区间内的成员,其中成员的位置按 score 值递增(从小到大)来排序
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> zrange(String key, long start, long end) {
         return redisTemplate.opsForZSet().range(key, start, end);
@@ -600,10 +413,6 @@ public class RedisUtils {
     /**
      * 返回有序集 key 中，所有 score 值介于 min 和 max 之间(包括等于 min 或 max)的成员。有序集成员按
      * score,值递增(从小到大)次序排列
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> zrangeByScore(String key, double min, double max) {
         return redisTemplate.opsForZSet().rangeByScore(key, min, max);
@@ -612,13 +421,8 @@ public class RedisUtils {
     /**
      * 返回有序集 key 中，所有 score 值介于 min 和 max 之间(包括等于 min 或 max)的成员。有序集成员按
      * score,值递增(从小到大)次序排列
-     *
-     * @param key
-     * @param min
-     * @param max
      * @param offset 位置
      * @param count  个数
-     * @return
      */
     public Set<Object> zrangeByScore(String key, double min, double max, long offset, long count) {
         return redisTemplate.opsForZSet().rangeByScore(key, min, max, offset, count);
@@ -626,10 +430,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 中成员 member 的排名。其中有序集成员按 score 值递增(从小到大)顺序排列。排名以 0 为底
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long zrank(String key, Object member) {
         return redisTemplate.opsForZSet().rank(key, member);
@@ -641,10 +441,6 @@ public class RedisUtils {
 
     /**
      * 移除有序集 key 中，指定排名(rank)区间内的所有成员
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long zremrangeByRank(String key, long start, long end) {
         return redisTemplate.opsForZSet().removeRange(key, start, end);
@@ -652,10 +448,6 @@ public class RedisUtils {
 
     /**
      * 移除有序集 key 中，所有 score 值介于 min 和 max 之间(包括等于 min 或 max )的成员
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long zremrangeByScore(String key, double min, double max) {
         return redisTemplate.opsForZSet().removeRangeByScore(key, min, max);
@@ -663,10 +455,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 中，指定区间内的成员。其中成员的位置按 score 值递减(从大到小)来排列。
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> zrevrange(String key, long start, long end) {
         return redisTemplate.opsForZSet().reverseRange(key, start, end);
@@ -675,10 +463,6 @@ public class RedisUtils {
     /**
      * 返回有序集 key 中， score 值介于 max 和 min 之间(默认包括等于 max 或 min)的所有的成员。有序集成员按
      * score,值递减(从大到小)的次序排列
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Set<Object> zrevrangeByScore(String key, double min, double max) {
         return redisTemplate.opsForZSet().reverseRangeByScore(key, min, max);
@@ -686,10 +470,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 中成员 member 的排名。其中有序集成员按 score 值递减(从大到小)排序。排名以 0 为底
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Long zrevrank(String key, Object member) {
         return redisTemplate.opsForZSet().reverseRank(key, member);
@@ -697,10 +477,6 @@ public class RedisUtils {
 
     /**
      * 返回有序集 key 中，成员 member 的 score 值
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public Double zscore(String key, Object member) {
         return redisTemplate.opsForZSet().score(key, member);
@@ -710,10 +486,6 @@ public class RedisUtils {
 
     /**
      * 将信息 message 发送到指定的频道 channel
-     *
-     * @param channel
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public void publish(String channel, Object message) {
         redisTemplate.convertAndSend(channel, message);
@@ -723,10 +495,6 @@ public class RedisUtils {
 
     /**
      * 获取redisTemplate的序列化
-     *
-     * @param
-     * @author caiLinFeng
-     * @date 2018年1月30日
      */
     public RedisSerializer<?> getDefaultSerializer() {
         return redisTemplate.getDefaultSerializer();

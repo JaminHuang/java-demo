@@ -19,17 +19,17 @@ public class RabbitMqConfig {
 
     private static final String FAIL_LETTER_QUEUE = "fail_letter";
 
-    private static final String DIRECT_EXCHANGE = "panda.direct";
+    private static final String DIRECT_EXCHANGE = "demo.direct";
 
-    private static final String DIRECT_DELAY_EXCHANGE = "panda.direct.x-delayed";
+    private static final String DIRECT_DELAY_EXCHANGE = "demo.direct.x-delayed";
 
-    private static final String TOPIC_EXCHANGE = "panda.topic";
+    private static final String TOPIC_EXCHANGE = "demo.topic";
 
-    private static final String TOPIC_DELAY_EXCHANGE = "panda.topic.x-delayed";
+    private static final String TOPIC_DELAY_EXCHANGE = "demo.topic.x-delayed";
 
-    private static final String FANOUT_EXCHANGE_PREFIX = "panda.fanout";
+    private static final String FANOUT_EXCHANGE_PREFIX = "demo.fanout";
 
-    private static final String FANOUT_DELAY_EXCHANGE_PREFIX = "panda.fanout.x-delayed";
+    private static final String FANOUT_DELAY_EXCHANGE_PREFIX = "demo.fanout.x-delayed";
 
     @Bean
     public MessageConverter messageConverter() {
