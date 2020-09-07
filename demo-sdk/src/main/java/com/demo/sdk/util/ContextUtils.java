@@ -40,7 +40,7 @@ public class ContextUtils {
     }
 
     public static void setConnectionFactory(ConnectionFactory connectionFactory) {
-        connectionFactory = connectionFactory;
+        ContextUtils.connectionFactory = connectionFactory;
     }
 
     public static RabbitTemplate getRabbitTemplate() {
