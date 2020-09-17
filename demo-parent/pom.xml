@@ -16,6 +16,7 @@
     <properties>
         <rpc.module.version>1.0.0</rpc.module.version>
         <sdk.module.version>1.0.0</sdk.module.version>
+        <timer.module.version>1.0.0</timer.module.version>
     </properties>
 
     <dependencies>
