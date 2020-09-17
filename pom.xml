@@ -14,5 +14,6 @@
         <module>demo-sdk</module>
         <module>demo-rpc</module>
         <module>demo-ibatx</module>
+        <module>demo-timer</module>
     </modules>
 </project>
