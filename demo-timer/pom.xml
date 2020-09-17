@@ -9,7 +9,7 @@
         <relativePath />
     </parent>
 
-    <artifactId>panda-timer</artifactId>
+    <artifactId>demo-timer</artifactId>
     <version>1.0.0</version>
 
     <dependencies>
