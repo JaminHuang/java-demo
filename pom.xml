@@ -8,6 +8,7 @@
 
     <packaging>pom</packaging>
 
+    <!-- modules -->
     <modules>
         <module>demo-dependencies</module>
         <module>demo-parent</module>
