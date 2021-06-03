@@ -24,7 +24,6 @@ public class JobEndRunner extends DestroyRunner {
         try {
             logger.info("JOB stop start");
             logger.info("向admin取消注册执行器");
-            new XxlJobExecutor.ExecutorServiceRegistry().stop();
             if (!JobContainer.awaitTermination(waitTime)) {
                 logger.error("JOB 进程在{}秒内无法结束,尝试强制结束", waitTime);
             }
