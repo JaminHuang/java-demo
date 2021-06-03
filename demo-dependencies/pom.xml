@@ -42,7 +42,7 @@
         <lombok.version>1.16.20</lombok.version>
         <freemarker.version>2.3.28</freemarker.version>
         <guava.version>27.1-jre</guava.version>
-        <xxl-job-core.version>2.1.1</xxl-job-core.version>
+        <xxl-job-core.version>2.3.0</xxl-job-core.version>
 
         <ibatx.project.version>1.0.0</ibatx.project.version>
         <springframework.version>4.3.13.RELEASE</springframework.version>
