@@ -11,7 +11,7 @@ public class MyMetaServerProvider implements MetaServerProvider {
 
     private static final int ORDER = MetaServerProvider.HIGHEST_PRECEDENCE;
 
-    private static final String DEV_URL = "http://localhost:8092/";
+    private static final String DEV_URL = "http://1.117.146.184:7001";
 
     private static final String TEST_URL = "http://localhost:8092/";
 
