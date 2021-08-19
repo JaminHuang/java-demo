@@ -25,7 +25,7 @@ public class MyMetaServerProvider implements MetaServerProvider {
         domains.put("dev", DEV_URL);
         domains.put("test", TEST_URL);
         domains.put("pre", PRE_URL);
-        domains.put("prod", PROD_URL);
+        domains.put("pro", PROD_URL);
     }
 
     public MyMetaServerProvider() {
