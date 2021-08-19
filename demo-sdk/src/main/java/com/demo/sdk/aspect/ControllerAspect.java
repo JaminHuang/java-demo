@@ -39,6 +39,8 @@ public class ControllerAspect {
 
     @Before("pointcut()")
     public void before(JoinPoint joinPoint) throws IllegalAccessException {
+        // 签名校验
+        SignVerify.verify(joinPoint);
         // 校验token
         AccessTokenVerify.verify(joinPoint);
         // 校验请求参数
