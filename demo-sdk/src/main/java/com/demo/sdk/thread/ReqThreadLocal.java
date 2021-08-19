@@ -1,7 +1,9 @@
 package com.demo.sdk.thread;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.sdk.consts.IsDebug;
 import com.demo.sdk.consts.SystemConstant;
+import com.demo.sdk.model.DeviceDTO;
 
 /**
  * description
@@ -31,9 +33,14 @@ public class ReqThreadLocal {
     private final static ThreadLocal<String> IP = ThreadLocal.withInitial(() -> "unknown");
 
     /**
-     * 请求的ip地址
+     * 请求的user
      */
     private final static ThreadLocal<JSONObject> USER = new ThreadLocal<>();
+
+    /**
+     * 请求的设备信息
+     */
+    private final static ThreadLocal<DeviceDTO> DEVICE = ThreadLocal.withInitial(DeviceDTO::new);
 
     /**
      * 请求的query
@@ -53,13 +60,14 @@ public class ReqThreadLocal {
     /**
      * 调试模式参数
      */
-    private final static ThreadLocal<Integer> DEBUG = ThreadLocal.withInitial(() -> 0);
+    private final static ThreadLocal<Byte> DEBUG = ThreadLocal.withInitial(() -> IsDebug.NOT_DEBUG);
 
     public static void removeAll() {
         ACCESS_TOKEN.remove();
         USER_ID.remove();
         USER_NAME.remove();
         IP.remove();
+        DEVICE.remove();
         USER.remove();
         QUERY.remove();
         BODY.remove();
@@ -131,11 +139,19 @@ public class ReqThreadLocal {
         return TID.get();
     }
 
-    public static void setDebug(Integer debug) {
+    public static void setDebug(Byte debug) {
         DEBUG.set(debug);
     }
 
-    public static Integer getDebug() {
+    public static Byte getDebug() {
         return DEBUG.get();
+    }
+
+    public static void setDevice(DeviceDTO deviceDTO) {
+        DEVICE.set(deviceDTO);
+    }
+
+    public static DeviceDTO getDevice() {
+        return DEVICE.get();
     }
 }

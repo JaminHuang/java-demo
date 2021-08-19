@@ -2,6 +2,9 @@ package com.demo.sdk.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.demo.sdk.consts.IsDebug;
+import com.demo.sdk.model.DeviceDTO;
+import com.demo.sdk.util.StringUtils;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.demo.sdk.consts.RedisKeyEnum;
@@ -47,8 +50,9 @@ public class ThreadLocalFilter extends OncePerRequestFilter {
         try {
             handleTid(request);
             handleIp(request);
-            handleToken(request);
             handleDebug(request);
+            handleDevice(request);
+            handleToken(request);
             filterChain.doFilter(request, response);
         } catch (Throwable e) {
             throw e;
@@ -63,21 +67,32 @@ public class ThreadLocalFilter extends OncePerRequestFilter {
         ReqThreadLocal.setIp(ip);
     }
 
-    /**
-     * 设置链路id
-     *
-     * @param request
-     */
+    // 设置链路id
     private void handleTid(HttpServletRequest request) {
         String tid = request.getHeader("tid");
-        ReqThreadLocal.setTid(tid);
+        ReqThreadLocal.setTid(tid == null ? StringUtils.generateTraceId() : tid);
     }
 
-    /**
-     * 解析请求头token，并设置到本地线程变量
-     *
-     * @param request
-     */
+    // 设置device 信息
+    private void handleDevice(HttpServletRequest request) {
+        String device = request.getHeader("device");
+        String appVersion = request.getHeader("appVersion");
+        String osVersion = request.getHeader("osVersion");
+
+        DeviceDTO deviceDTO = new DeviceDTO();
+        deviceDTO.setDevice(device == null ? DeviceDTO.Device.DEFAULT.getValue() : Byte.parseByte(device));
+        deviceDTO.setAppVersion(appVersion);
+        deviceDTO.setOsVersion(osVersion);
+        ReqThreadLocal.setDevice(deviceDTO);
+    }
+
+    // 解析debug 参数
+    private void handleDebug(HttpServletRequest request) {
+        String debug = request.getHeader("debug");
+        ReqThreadLocal.setDebug(debug == null ? IsDebug.NOT_DEBUG : Byte.parseByte(debug));
+    }
+
+    // 解析请求头token，并设置到本地线程变量
     private void handleToken(HttpServletRequest request) {
         // 获取请求头
         String accessToken = request.getHeader("access-token");
@@ -110,15 +125,4 @@ public class ThreadLocalFilter extends OncePerRequestFilter {
             }
         }
     }
-
-    /**
-     * 设置debug参数
-     *
-     * @param request
-     */
-    private void handleDebug(HttpServletRequest request) {
-        String debug = request.getHeader("debug");
-        ReqThreadLocal.setDebug(debug == null ? 0 : Integer.parseInt(debug));
-    }
-
 }
